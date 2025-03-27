@@ -1,0 +1,3 @@
+<p [ngClass]="{'current-timeZone': disabledBtn}" >a jelenlegi időzóna: {{timeZoneString}} {{dateTime}}</p>
+<button (click)="setTimeZone()">Frissítés</button>
+<button (click)="setCurrentTimeZone()" [disabled]="disabledBtn">Jeleginek jelöl</button>
