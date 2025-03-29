@@ -1,3 +1,13 @@
-.current-timeZone{
-    text-decoration: underline;
+
+.wrapper{
+    border: 1px solid #36f;
+    width: fit-content;
+    margin: 15px 0;
+    padding: 10px;
+    &.current-timeZone{
+        text-decoration: underline;
+        font-weight: 900;
+        background-color: rgb(177, 248, 248);
+    }
+
 }

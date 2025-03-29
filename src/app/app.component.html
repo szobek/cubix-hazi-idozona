@@ -1,4 +1,7 @@
-<app-time-zone [timeZoneString]="timezones[1]" (changeTimeZone)="setTimeZone($event)" [disabledBtn]="timeZoneString===timezones[1]" />
-<app-time-zone [timeZoneString]="timezones[7]" (changeTimeZone)="setTimeZone($event)" [disabledBtn]="timeZoneString===timezones[7]"/>
-<app-time-zone [timeZoneString]="timezones[10]" (changeTimeZone)="setTimeZone($event)" [disabledBtn]="timeZoneString===timezones[10] "/>
-<app-time-zone [timeZoneString]="timezones[2]" (changeTimeZone)="setTimeZone($event)" [disabledBtn]="timeZoneString===timezones[2]"/>
+<div>
+    <button class="btn-base green" (click)="setList('inc')" *ngIf="list.length <5">Hozzáad</button>
+    <button class="btn-base red" (click)="setList('desc')" *ngIf="list.length != 0">Töröl</button>
+
+</div>
+<app-time-zone *ngFor="let item of list" [timeZoneString]="item.timeZoneString"
+    (changeTimeZone)="setTimeZone(item,$event)" [disabledBtn]="item.currentTimeZone" />

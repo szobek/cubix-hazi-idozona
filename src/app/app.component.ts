@@ -1,17 +1,21 @@
 import { Component } from '@angular/core';
 import { TimeZoneComponent } from './time-zone/time-zone.component';
+import { NgFor, NgIf } from '@angular/common';
+import { TimeZoneType } from './time-zone/timezone-type';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [TimeZoneComponent],
+  imports: [TimeZoneComponent, NgFor,NgIf],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   timeZoneString: string = '';
-timezones: string[] = [
-  'Asia/Dubai',
+  currentComponent: number = 0;
+  list: TimeZoneType[] = [];
+  timezones: string[] = [
+    'Asia/Dubai',
     'Asia/Kabul',
     'Europe/Tirane',
     'Asia/Yerevan',
@@ -67,9 +71,19 @@ timezones: string[] = [
     'Africa/Algiers',
     'America/Guayaquil',
     'Pacific/Galapagos',
-];
-setTimeZone(timeZone: string) {
-  console.log(timeZone);
-  this.timeZoneString = timeZone;
-}  
+  ];
+  setTimeZone(item: any, currentTimeZone: boolean) {
+    this.list.forEach((element: any) => {
+      element.currentTimeZone = false;
+    });
+    item.currentTimeZone = currentTimeZone;
+  }
+  setList(mod: string) {
+    mod === 'inc'
+      ? this.list.push({
+          timeZoneString: this.timezones[Math.floor(Math.random() * this.timezones.length)],
+          currentTimeZone: false,
+        })
+      : this.list.pop();
+  }
 }

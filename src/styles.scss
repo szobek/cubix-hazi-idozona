@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+.btn-base {
+    border: 0;
+    background-color: burlywood;
+    color: black;
+    margin-right: 10px;
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+
+    &.red {
+        background-color: rgb(204, 107, 107);
+        color: #fff;
+      
+    }
+    &.green {
+        background-color: rgb(91, 150, 91);
+    }
+    &:disabled {
+        color: rgb(114, 116, 115);
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+
+    
+}
